@@ -1,0 +1,20 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: consul-config
+  profiles:
+    active: native
+  cloud:
+    consul:
+      host: 10.10.35.249
+      port: 8500
+      discovery:
+        service-name: "${spring.application.name}"
+        prefer-ip-address: true
+    config:
+      server:
+        native:
+          search-locations: classpath:/config
+        bootstrap: true

@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: gateway-service
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: 10.10.35.249
+      port: 8500
+      discovery:
+        service-name: "${spring.application.name}"
+        prefer-ip-address: true
+    config:
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: consul-config
+
+logging:
+  config: classpath:logback.xml

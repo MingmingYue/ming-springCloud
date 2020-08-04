@@ -1,0 +1,15 @@
+spring:  
+  application:
+    name: order-service
+  cloud:
+    consul:
+      host: 10.10.35.249
+      port: 8500
+      discovery:
+        instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+server.port: 0
