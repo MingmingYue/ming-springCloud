@@ -13,6 +13,7 @@
         <module>com-gateway-service</module>
         <module>com-cloud-core</module>
         <module>com-user-service</module>
+        <module>com-cloudsy-stem</module>
     </modules>
 
     <parent>
