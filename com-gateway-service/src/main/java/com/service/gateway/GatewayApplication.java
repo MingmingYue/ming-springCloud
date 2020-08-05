@@ -14,9 +14,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
  * @author xiaoMing
  * Create on 2020-07-05.
  */
-@EnableZuulProxy
 @SpringCloudApplication
-@EnableGlobalMethodSecurity
 @ComponentScan(basePackages = {"com.service"})
 public class GatewayApplication {
 

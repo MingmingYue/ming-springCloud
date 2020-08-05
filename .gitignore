@@ -29,6 +29,7 @@ logs/
 /.nb-gradle/
 build/
 
+*.log
 
 
 ### VS Code ###

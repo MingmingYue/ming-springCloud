@@ -6,7 +6,8 @@ spring:
       host: 10.10.35.249
       port: 8500
       discovery:
-        instance-id: "${spring.application.name}-${server.port}-${spring.cloud.client.ip-address}"
+        instance-id: "${spring.application.name}"
+        prefer-ip-address: true
 
 logging:
   level:
