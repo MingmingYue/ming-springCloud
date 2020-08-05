@@ -1,6 +1,6 @@
 spring:  
   application:
-    name: order-service
+    name: user-service
   cloud:
     consul:
       host: 10.10.35.249
