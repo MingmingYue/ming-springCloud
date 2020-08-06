@@ -51,6 +51,12 @@
             <groupId>com.ming.springCloud</groupId>
             <artifactId>com-core-config</artifactId>
             <version>${ming-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-config-server</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 

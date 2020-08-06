@@ -65,6 +65,18 @@
             <artifactId>com-core-exception</artifactId>
             <version>${ming-version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.ming.springCloud</groupId>
+            <artifactId>com-core-config</artifactId>
+            <version>${ming-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.cloud</groupId>
+                    <artifactId>spring-cloud-config-server</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <build>
