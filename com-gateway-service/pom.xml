@@ -69,6 +69,12 @@
             <groupId>com.ming.springCloud</groupId>
             <artifactId>com-core-config</artifactId>
             <version>${ming-version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
     </dependencies>
 
