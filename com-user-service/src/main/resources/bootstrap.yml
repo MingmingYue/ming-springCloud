@@ -8,6 +8,8 @@ spring:
       discovery:
         instance-id: "${spring.application.name}"
         prefer-ip-address: true
+  mvc:
+    f
 
 logging:
   level:
