@@ -20,6 +20,9 @@ public class MyConsulServiceRegistry extends ConsulServiceRegistry {
 
     @Override
     public void register(ConsulRegistration reg) {
+        if(reg.getService().getAddress().contains("192.168")){
+            reg.getService().setAddress("10.10.35.236");
+        }
         reg.getService().setId(reg.getService().getName() + "-" + reg.getService().getAddress() + "-" + reg.getService().getPort());
         super.register(reg);
     }
