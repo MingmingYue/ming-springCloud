@@ -8,6 +8,7 @@ spring:
       discovery:
         instance-id: "${spring.application.name}"
         prefer-ip-address: true
+        hostname: 10.10.35.236
 
 logging:
   level:

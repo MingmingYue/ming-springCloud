@@ -10,6 +10,7 @@ spring:
       discovery:
         service-name: "${spring.application.name}"
         prefer-ip-address: true
+        hostname: 10.10.35.236
     config:
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
