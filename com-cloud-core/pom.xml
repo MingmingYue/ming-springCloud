@@ -14,6 +14,7 @@
     <modules>
         <module>com-core-commons</module>
         <module>com-core-exception</module>
+        <module>com-core-config</module>
     </modules>
 
 

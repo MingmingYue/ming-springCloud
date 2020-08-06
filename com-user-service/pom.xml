@@ -46,6 +46,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.ming.springCloud</groupId>
+            <artifactId>com-core-config</artifactId>
+            <version>${ming-version}</version>
+        </dependency>
     </dependencies>
 
     <build>

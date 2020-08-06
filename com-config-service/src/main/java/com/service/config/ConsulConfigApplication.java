@@ -3,6 +3,7 @@ package com.service.config;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.context.annotation.ComponentScan;
 
 /**
  * @author xiaoMing
@@ -10,6 +11,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  */
 @EnableConfigServer
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.service", "com.core.register"})
 public class ConsulConfigApplication {
 
     public static void main(String[] args) {

@@ -58,12 +58,17 @@
         <dependency>
             <groupId>com.ming.springCloud</groupId>
             <artifactId>com-core-commons</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${ming-version}</version>
         </dependency>
         <dependency>
             <groupId>com.ming.springCloud</groupId>
             <artifactId>com-core-exception</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${ming-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.ming.springCloud</groupId>
+            <artifactId>com-core-config</artifactId>
+            <version>${ming-version}</version>
         </dependency>
     </dependencies>
 
