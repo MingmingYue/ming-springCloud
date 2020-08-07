@@ -23,8 +23,9 @@ public class UserController {
 
     @GetMapping(value = "/details/{userId}")
     public UserModel accept(@PathVariable(value = "userId") Integer userId) {
-        System.out.println("====================" + userId + new Random().nextInt(100));
-        System.out.println(authClient.getAuth(userId));
+        Integer randId = new Random().nextInt(100);
+        System.out.println("==================== userId: " + randId);
+        System.out.println(authClient.getAuth(randId));
         return UserModel.builder().userId(userId).username("Ming").build();
     }
 }
