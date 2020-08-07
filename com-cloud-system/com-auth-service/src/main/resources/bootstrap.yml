@@ -1,0 +1,26 @@
+spring:  
+  application:
+    name: auth-service
+  profiles:
+    active: dev
+  cloud:
+    consul:
+      host: 10.10.35.249
+      port: 8500
+      discovery:
+        prefer-ip-address: true
+        health-check-interval: 15s
+        service-name: "${spring.application.name}"
+    config:
+      name: ${spring.application.name}
+      profile: ${spring.profiles.active}
+      fail-fast: true
+      discovery:
+        enabled: true
+        service-id: consul-config
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+
+server.port: 0

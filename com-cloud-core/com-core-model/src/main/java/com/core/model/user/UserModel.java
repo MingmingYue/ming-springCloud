@@ -1,4 +1,4 @@
-package com.service.user.model;
+package com.core.model.user;
 
 import lombok.Builder;
 import lombok.Getter;

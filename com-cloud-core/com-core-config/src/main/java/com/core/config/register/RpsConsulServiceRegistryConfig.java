@@ -1,4 +1,4 @@
-package com.core.register;
+package com.core.config.register;
 
 import com.ecwid.consul.v1.ConsulClient;
 import org.springframework.beans.factory.annotation.Autowired;

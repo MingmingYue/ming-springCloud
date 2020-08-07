@@ -14,7 +14,7 @@ import org.springframework.context.annotation.ComponentScan;
  * Create on 2020-07-05.
  */
 @SpringCloudApplication
-@ComponentScan(basePackages = {"com.service", "com.core.register"})
+@ComponentScan(basePackages = {"com.service", "com.core.config.register"})
 @EnableAutoConfiguration(exclude = {SecurityAutoConfiguration.class})
 public class GatewayApplication {
 

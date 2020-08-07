@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @EnableConfigServer
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.service", "com.core.register"})
+@ComponentScan(basePackages = {"com.service", "com.core.config.register"})
 public class ConsulConfigApplication {
 
     public static void main(String[] args) {
