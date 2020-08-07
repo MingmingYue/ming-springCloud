@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: auth-service
+
+logging:
+  level:
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+  pattern:
+    file: "%d{HH:mm:ss.SSS} %-5level %msg%n"

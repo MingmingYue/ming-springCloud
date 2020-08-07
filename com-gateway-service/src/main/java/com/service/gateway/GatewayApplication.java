@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor;
 import org.springframework.context.annotation.Bean;
@@ -22,6 +23,7 @@ public class GatewayApplication {
     }
 
     @Bean
+    @LoadBalanced
     LoadBalancerInterceptor loadBalancerInterceptor(LoadBalancerClient loadBalance) {
         return new LoadBalancerInterceptor(loadBalance);
     }

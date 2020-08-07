@@ -8,9 +8,9 @@ spring:
       host: 10.10.35.249
       port: 8500
       discovery:
-        service-name: "${spring.application.name}"
         prefer-ip-address: true
-        hostname: 10.10.35.236
+        health-check-interval: 15s
+        service-name: "${spring.application.name}"
     config:
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
