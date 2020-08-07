@@ -2,8 +2,8 @@ package com.service.user.client;
 
 import com.core.model.auth.AuthModel;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
 
 /**
  * @author xiaoMing
@@ -12,6 +12,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 @FeignClient(name = "auth-service")
 public interface AuthClient {
 
-    @PutMapping("/details/{authId}")
+    @GetMapping("/details/{authId}")
     AuthModel getAuth(@PathVariable("authId") Integer id);
 }
