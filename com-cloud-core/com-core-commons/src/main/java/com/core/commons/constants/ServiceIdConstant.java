@@ -9,10 +9,15 @@ public interface ServiceIdConstant {
     /**
      * 认证服务的SERVICEID（zuul 配置的对应）
      */
-    String AUTH_SERVICE = "system-auth-server";
+    String AUTH_SERVICE = "auth-server";
 
     /**
      * ADMIN模块
      */
-    String ADMIN_SERVICE = "business-admin-server";
+    String ADMIN_SERVICE = "user-service";
+
+    /**
+     * 所有模块
+     */
+    String ALL_SERVICE = "*";
 }

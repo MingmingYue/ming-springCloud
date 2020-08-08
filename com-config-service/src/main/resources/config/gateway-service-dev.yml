@@ -29,3 +29,27 @@ spring:
             - Path=/auth/**
           filters:
             - RewritePath=/auth/(?<path>.*), /$\{path}
+      default-filters:
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/default-error
+zuul:
+  ribbon:
+    eager-load:
+      enabled: true #开启Ribbon的饥饿加载模式
+  ignoredServices: '*'
+  host:
+    connect-timeout-millis: 30000
+    socket-timeout-millis: 30000
+  routes:
+    auth:
+      path: /auth/**
+      serviceId: auth-service
+      stripPrefix: true
+      sensitiveHeaders:
+    user:
+      path: /user/**
+      serviceId: user-service
+      stripPrefix: true
+      sensitiveHeaders:

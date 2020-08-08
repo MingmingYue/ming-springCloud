@@ -24,6 +24,11 @@ import java.io.InputStream;
 public class AdminFallbackProvider implements FallbackProvider {
 
     @Override
+    public String getRoute() {
+        return ServiceIdConstant.ADMIN_SERVICE;
+    }
+
+    @Override
     public ClientHttpResponse fallbackResponse(String route, Throwable cause) {
         return this.response(HttpStatus.INTERNAL_SERVER_ERROR, route, cause);
     }
@@ -69,10 +74,5 @@ public class AdminFallbackProvider implements FallbackProvider {
                 return headers;
             }
         };
-    }
-
-    @Override
-    public String getRoute() {
-        return ServiceIdConstant.ADMIN_SERVICE;
     }
 }

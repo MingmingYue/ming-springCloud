@@ -24,7 +24,7 @@ public class AllFallbackProvider implements FallbackProvider {
 
     @Override
     public String getRoute() {
-        return "*";
+        return ServiceIdConstant.ALL_SERVICE;
     }
 
     @Override
