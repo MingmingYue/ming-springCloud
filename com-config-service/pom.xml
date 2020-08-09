@@ -19,11 +19,6 @@
         </dependency>
         <dependency>
             <groupId>com.ming.springCloud</groupId>
-            <artifactId>com-common-config</artifactId>
-            <version>${ming-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ming.springCloud</groupId>
             <artifactId>com-core-config</artifactId>
             <version>${ming-version}</version>
         </dependency>
