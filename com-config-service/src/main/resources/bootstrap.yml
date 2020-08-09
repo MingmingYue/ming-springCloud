@@ -6,10 +6,11 @@ spring:
     name: consul-config
   profiles:
     active: native
+    include: common-config
   cloud:
     consul:
-      host: localhost
-      port: 8500
+      host: "${consul.common.address}"
+      port: "${consul.common.port}"
       discovery:
         prefer-ip-address: true
         health-check-interval: 15s

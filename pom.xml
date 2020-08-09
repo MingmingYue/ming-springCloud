@@ -14,6 +14,7 @@
         <module>com-cloud-core</module>
         <module>com-user-service</module>
         <module>com-cloud-system</module>
+        <module>com-common-config</module>
     </modules>
 
     <parent>
