@@ -1,7 +1,16 @@
 spring:
-  application:
-    profiles:
-      include: common-config
+  redis:
+    host: 49.232.4.6
+    password: m6i1m2a3
+    database: 0
+    port: 6321
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 10000
   cloud:
     gateway:
       discovery:
@@ -25,6 +34,7 @@ spring:
           args:
             name: fallbackcmd
             fallbackUri: forward:/default-error
+
 zuul:
   ribbon:
     eager-load:
@@ -44,13 +54,12 @@ zuul:
       serviceId: user-service
       stripPrefix: true
       sensitiveHeaders:
-#  ratelimit:
-#    key-prefix: user-ratelimite
-#    enabled: true
-#    repository: REDIS
-#    behind-proxy: true
-#    policies:
-#      user-service:
-#        limit: 100
-#        quota: 100
-#        refresh-interval: 3 #3秒内允许300个访问，平均每个请求2秒，并且要求总请求时间小于2400秒
+  ratelimit:
+    enabled: true
+    repository: REDIS
+    policy-list:
+      user:
+        - limit: 100
+          refresh-interval: 3 #3秒内允许300个访问，平均每个请求2秒，并且要求总请求时间小于2400秒
+          type:
+            - url

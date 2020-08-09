@@ -25,7 +25,7 @@ public class UserController {
     public UserModel accept(@PathVariable(value = "userId") Integer userId) {
         Integer randId = new Random().nextInt(100);
         System.out.println("==================== userId: " + randId);
-        System.out.println(authClient.getAuth(randId));
+//        System.out.println(authClient.getAuth(randId));
         return UserModel.builder().userId(userId).username("Ming").build();
     }
 }
