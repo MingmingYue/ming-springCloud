@@ -1,8 +1,6 @@
 spring:
   application:
     name: auth-service
-    profiles:
-      include: common-config
 
 logging:
   level:
