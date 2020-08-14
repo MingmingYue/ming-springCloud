@@ -4,6 +4,15 @@ spring:
     username: ENC(F+YkgT3pkCtS8/75kJLB/A==)
     password: ENC(F+YkgT3pkCtS8/75kJLB/A==)
     url: jdbc:mysql://localhost:3306/cloud?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
   redis:
     host: 49.232.4.6
     password: m6i1m2a3
