@@ -12,6 +12,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>com-auth-service</module>
+        <module>com-system-api</module>
+        <module>com-system-common</module>
     </modules>
 
     <dependencies>

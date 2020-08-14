@@ -7,3 +7,18 @@ logging:
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
   pattern:
     file: "%d{HH:mm:ss.SSS} %-5level %msg%n"
+
+ming:
+  jwt:
+    jwtkey: jwt:token:ming
+
+urls:
+  collects:
+    - /auth/**
+    - /**/*.css
+    - /**/*.png
+    - /info
+    - /health
+    - /metrics/**
+    - /loggers/**
+    - /mobile/token

@@ -19,7 +19,7 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableCircuitBreaker
 @EnableDiscoveryClient
 @SpringCloudApplication
-@ComponentScan(basePackages = {"com.service", "com.core.config.register"})
+@ComponentScan(basePackages = {"com.service", "com.core.config"})
 public class GatewayApplication {
 
     public static void main(String[] args) {
