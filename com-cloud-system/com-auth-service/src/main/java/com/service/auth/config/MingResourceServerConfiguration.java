@@ -4,8 +4,10 @@ import com.core.config.configuration.MingUrlsConfiguration;
 import com.service.auth.component.ajax.AjaxSecurityConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -26,7 +28,13 @@ public class MingResourceServerConfiguration extends WebSecurityConfigurerAdapte
     @Autowired
     private AjaxSecurityConfigurer  ajaxSecurityConfigurer;
 
+    @Bean
     @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+        @Override
     public void configure(HttpSecurity http) throws Exception {
         ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http.formLogin()
                 // 可以通过授权登录进行访问

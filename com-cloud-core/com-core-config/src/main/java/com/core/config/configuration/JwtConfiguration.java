@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
  * Create on 2020-08-10.
  */
 @Configuration
-@ConfigurationProperties(prefix = "fw.jwt")
+@ConfigurationProperties(prefix = "ming.jwt")
 public class JwtConfiguration {
 
     /**

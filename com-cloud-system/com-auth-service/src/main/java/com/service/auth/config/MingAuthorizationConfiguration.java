@@ -46,7 +46,7 @@ public class MingAuthorizationConfiguration extends AuthorizationServerConfigure
     @Resource
     private AuthenticationManager authenticationManager;
 
-    @Autowired
+    @Autowired(required = false)
     private UserDetailsService userDetailsService;
 
     @Autowired

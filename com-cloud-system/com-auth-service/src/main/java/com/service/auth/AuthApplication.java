@@ -11,7 +11,7 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @EnableFeignClients
 @SpringCloudApplication
-@ComponentScan(basePackages = {"com.service", "com.core.config"})
+@ComponentScan(basePackages = {"com.service.api","com.service.auth", "com.service","com.core.config"})
 public class AuthApplication {
 
     public static void main(String[] args) {
