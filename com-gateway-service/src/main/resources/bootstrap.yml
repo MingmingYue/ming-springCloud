@@ -19,5 +19,9 @@ spring:
         enabled: true
         service-id: consul-config
 
+jasypt:
+  encryptor:
+    password: ming
+
 logging:
   config: classpath:logback.xml

@@ -114,8 +114,15 @@
             </dependency>
 
             <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>1.18</version>
+            </dependency>
+
+            <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
             </dependency>
 
             <dependency>
@@ -134,15 +141,11 @@
                 <version>${querydsl.version}</version>
             </dependency>
 
-            <dependency>
-                <groupId>javax.inject</groupId>
-                <artifactId>javax.inject</artifactId>
-            </dependency>
-
             <!--HikariCP连接池 //https://github.com/brettwooldridge/HikariCP -->
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
+                <version>${hikaricp.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
