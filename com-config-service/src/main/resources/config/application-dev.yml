@@ -1,0 +1,74 @@
+jasypt:
+  encryptor:
+    password: ming
+ming:
+  jwt:
+    jwtkey: jwt:token:ming
+
+server:
+  tomcat:
+    max-threads: 500
+    min-spare-threads: 50
+
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  redis:
+    host: 127.0.0.1
+    password: m6i1m2a3
+    database: 0
+    port: 6329
+    jedis:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+    timeout: 10000
+
+cache:
+  redis:
+    expiration: 3600
+
+ribbon:
+  eager-load:
+    enabled: true
+    clients: system-auth-server,business-admin-server
+  Httpclient:
+    enable: false
+  OkHttp:
+    enable: true
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
+  
+feign:
+  hystrix:
+    enabled: true
+  okhttp:
+    enable: true
+  httpclient:
+    enable: false
+  client:
+    config:
+      feignName:
+        connectTimeout: 30000
+        readTimeout: 30000
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maxQueueSize: 1000
+      queueSizeRejectionThreshold: 800
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

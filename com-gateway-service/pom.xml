@@ -79,6 +79,7 @@
             <groupId>com.ming.springCloud</groupId>
             <artifactId>com-system-api</artifactId>
             <version>${ming-version}</version>
+
         </dependency>
         <dependency>
             <groupId>com.ming.springCloud</groupId>

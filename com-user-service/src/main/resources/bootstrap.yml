@@ -5,7 +5,7 @@ spring:
     active: dev
   cloud:
     consul:
-      host: 10.10.35.249
+      host: localhost
       port: 8500
       discovery:
         prefer-ip-address: true
@@ -18,6 +18,10 @@ spring:
       discovery:
         enabled: true
         service-id: consul-config
+
+jasypt:
+  encryptor:
+    password: ming
 
 logging:
   level:

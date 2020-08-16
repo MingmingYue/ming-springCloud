@@ -1,26 +1,14 @@
-spring:
-  redis:
-    host: 127.0.0.1
-    password: m6i1m2a3
-    database: 0
-    port: 6321
-    jedis:
-      pool:
-        max-active: 8
-        max-wait: -1
-        max-idle: 8
-        min-idle: 0
-    timeout: 10000
+ming:
+  auth:
+    clientId: ENC(rQCI1lOpsud4BWlLQMxn9ClLK/b2880F)
+    clientSecret: ENC(+2p9S5Cs1L7Z6eyJA8spzGzSSNIzRhoI)
+    scope: server
 
 logging:
   level:
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
   pattern:
     file: "%d{HH:mm:ss.SSS} %-5level %msg%n"
-
-ming:
-  jwt:
-    jwtkey: jwt:token:ming
 
 urls:
   collects:

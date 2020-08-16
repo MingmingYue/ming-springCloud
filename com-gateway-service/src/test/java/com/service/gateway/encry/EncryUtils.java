@@ -3,9 +3,10 @@ package com.service.gateway.encry;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import javax.annotation.Resource;
 
 /**
  * @author xiaoMing
@@ -15,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class EncryUtils {
 
-    @Autowired
+    @Resource
     StringEncryptor stringEncryptor;
 
     @Test

@@ -1,6 +1,18 @@
 spring:
-  application:
-    name: user-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ENC(F+YkgT3pkCtS8/75kJLB/A==)
+    password: ENC(F+YkgT3pkCtS8/75kJLB/A==)
+    url: jdbc:mysql://localhost:3306/cloud?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+  jpa:
+    database: MYSQL
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
 
 logging:
   level:

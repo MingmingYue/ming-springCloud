@@ -18,22 +18,6 @@ spring:
       discovery:
         enabled: true
         service-id: consul-config
-  redis:
-    host: 127.0.0.1
-    password: m6i1m2a3
-    database: 0
-    port: 6321
-    jedis:
-      pool:
-        max-active: 8
-        max-wait: -1
-        max-idle: 8
-        min-idle: 0
-    timeout: 10000
-ming:
-  jwt:
-    jwtkey: jwt:token:ming
-
 
 logging:
   level:

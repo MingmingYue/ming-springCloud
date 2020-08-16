@@ -1,8 +1,8 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: ENC(F+YkgT3pkCtS8/75kJLB/A==)
-    password: ENC(F+YkgT3pkCtS8/75kJLB/A==)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: ENC(Z3cgiTeEq+Cnl0MGrX7teA==)
+    password: ENC(Z3cgiTeEq+Cnl0MGrX7teA==)
     url: jdbc:mysql://localhost:3306/cloud?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
   jpa:
     database: MYSQL
@@ -13,18 +13,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-  redis:
-    host: 127.0.0.1
-    password: m6i1m2a3
-    database: 0
-    port: 6321
-    jedis:
-      pool:
-        max-active: 8
-        max-wait: -1
-        max-idle: 8
-        min-idle: 0
-    timeout: 10000
   cloud:
     gateway:
       discovery:
