@@ -15,10 +15,10 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   redis:
-    host: 127.0.0.1
-    password: m6i1m2a3
+    host: 10.10.35.236
+    password: 123456
     database: 0
-    port: 6329
+    port: 6379
     jedis:
       pool:
         max-active: 8
