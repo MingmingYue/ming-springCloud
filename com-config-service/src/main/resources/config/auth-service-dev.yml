@@ -16,7 +16,7 @@ urls:
     - /**/*.css
     - /**/*.png
     - /info
-    - /health
+    - /actuator/health
     - /metrics/**
     - /loggers/**
     - /mobile/token

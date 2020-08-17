@@ -44,10 +44,8 @@ public class MingResourceServerConfiguration extends WebSecurityConfigurerAdapte
                 .authorizeRequests();
 
         for (String url : mingUrlsConfiguration.getCollects()) {
-            registry.antMatchers(url)
-                    .permitAll();
+            registry.antMatchers(url).permitAll();
         }
-
         registry.anyRequest()
                 .authenticated()
                 .and()
