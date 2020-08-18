@@ -2,8 +2,8 @@ server:
   port: 1004
 ming:
   auth:
-    clientId: ENC(tEg7vPpjdLj7C9BfMgAtvg==)
-    clientSecret: ENC(tEg7vPpjdLj7C9BfMgAtvg==)
+    clientId: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)
+    clientSecret: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)
     scope: server
 spring:
   freemarker:

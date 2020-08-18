@@ -71,8 +71,8 @@ security:
   sessions: stateless
   oauth2:
     client:
-      client-id: ENC(tEg7vPpjdLj7C9BfMgAtvg==)
-      client-secret: ENC(tEg7vPpjdLj7C9BfMgAtvg==)
+      client-id: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)
+      client-secret: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)
     resource:
       loadBalanced: true
       token-info-uri: ${security.auth.server}/oauth/check-token #由资源服务器用来解码访问令牌

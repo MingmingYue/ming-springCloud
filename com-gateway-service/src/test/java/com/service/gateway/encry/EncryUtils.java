@@ -21,6 +21,6 @@ public class EncryUtils {
 
     @Test
     public void encryptPwd() {
-        System.out.println(stringEncryptor.encrypt("auth"));
+        System.out.println(stringEncryptor.encrypt("user-service"));
     }
 }
