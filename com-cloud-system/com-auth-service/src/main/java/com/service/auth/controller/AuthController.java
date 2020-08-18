@@ -8,10 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -19,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
  * Create on 2020-08-07.
  */
 @Slf4j
-@RestController
+@RequestMapping("/auth")
 public class AuthController {
 
     @Autowired
@@ -35,7 +32,7 @@ public class AuthController {
 
     @GetMapping("/login")
     public ModelAndView login() {
-        return new ModelAndView("ftl/login");
+        return new ModelAndView("templates.ftl/login");
     }
 
     @GetMapping(value = "/details/{authId}")

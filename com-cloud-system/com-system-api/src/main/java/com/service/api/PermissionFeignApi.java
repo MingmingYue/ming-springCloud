@@ -12,7 +12,7 @@ import java.util.Set;
  * @author xiaoMing
  * Create on 2020-08-12.
  */
-@FeignClient(name = "business-admin-server", fallback = PermissionFeignApiHystrix.class)
+@FeignClient(name = "user-service", fallback = PermissionFeignApiHystrix.class)
 public interface PermissionFeignApi {
 
     /**
