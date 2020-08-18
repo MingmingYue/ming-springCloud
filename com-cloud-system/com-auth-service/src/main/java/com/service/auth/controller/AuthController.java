@@ -16,7 +16,8 @@ import org.springframework.web.servlet.ModelAndView;
  * Create on 2020-08-07.
  */
 @Slf4j
-@RequestMapping("/auth")
+@RestController
+@RequestMapping(value = "/auth")
 public class AuthController {
 
     @Autowired
@@ -32,7 +33,7 @@ public class AuthController {
 
     @GetMapping("/login")
     public ModelAndView login() {
-        return new ModelAndView("templates.ftl/login");
+        return new ModelAndView("ftl/login");
     }
 
     @GetMapping(value = "/details/{authId}")

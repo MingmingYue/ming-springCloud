@@ -14,7 +14,7 @@ spring:
     expose-session-attributes: false
     expose-spring-macro-helpers: true
     prefer-file-system-access: true
-    suffix: .templates.ftl
+    suffix: .ftl
     template-loader-path: classpath:/templates/
 
 ming:
