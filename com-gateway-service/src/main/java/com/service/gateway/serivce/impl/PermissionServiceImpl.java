@@ -3,6 +3,7 @@ package com.service.gateway.serivce.impl;
 import com.core.commons.constants.SecurityConstant;
 import com.core.commons.jwt.JwtUtil;
 import com.core.commons.utils.StringHelper;
+import com.service.api.UserFeignApi;
 import com.service.api.model.AuthPermission;
 import com.service.gateway.serivce.PermissionService;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +31,7 @@ import java.util.Set;
 public class PermissionServiceImpl implements PermissionService {
 
     @Autowired
-    private PermissionFeignApi permissionFeignApi;
+    private UserFeignApi userFeignApi;
 
     @Autowired
     private RedisConnectionFactory redisConnectionFactory;
@@ -71,7 +72,7 @@ public class PermissionServiceImpl implements PermissionService {
         // 接口层面做了缓存处理，后续可以继续优化
         Set<AuthPermission> permissions = new HashSet<>();
         for (SimpleGrantedAuthority authority : grantedAuthorityList) {
-            permissions.addAll(permissionFeignApi.findMenuByRole(authority.getAuthority()));
+            permissions.addAll(userFeignApi.findMenuByRole(authority.getAuthority()));
         }
         // 网关处理是否拥有菜单权限，菜单下的功能权限校验由调用子模块负责
         String requestURI = request.getRequestURI();
