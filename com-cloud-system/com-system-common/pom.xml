@@ -39,6 +39,12 @@
         </dependency>
 
         <dependency>
+            <groupId>com.ming.springCloud</groupId>
+            <artifactId>com-core-exception</artifactId>
+            <version>${ming-version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.querydsl</groupId>
             <artifactId>querydsl-core</artifactId>
         </dependency>

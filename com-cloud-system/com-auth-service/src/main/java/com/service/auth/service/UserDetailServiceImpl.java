@@ -21,7 +21,7 @@ public class UserDetailServiceImpl implements UserDetailsService, Serializable {
     private static final long	serialVersionUID	= 5181442448895412779L;
 
     @Autowired
-    private UserFeignApi        userFeignApi;
+    private     UserFeignApi        userFeignApi;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {

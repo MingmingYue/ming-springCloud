@@ -13,7 +13,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 
 /**
  * @author xiaoMing
- * Create on 2020-07-05.
+ * Create on 2020-08-19.
  */
 @EnableZuulProxy
 @EnableFeignClients

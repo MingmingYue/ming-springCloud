@@ -1,10 +1,15 @@
 package com.service.api;
 
 import com.service.api.hystrix.UserFeignApiHystrix;
+import com.service.api.model.AuthPermission;
 import com.service.api.model.AuthUser;
+
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import java.util.Set;
+
 
 /**
  * @author xiaoMing
@@ -18,12 +23,18 @@ public interface UserFeignApi {
      *
      * @param username 用户名
      */
-    @GetMapping("/findUserByUsername/{username}")
+    @GetMapping("/api/findUserByUsername/{username}")
     AuthUser findUserByUsername(@PathVariable("username") String username);
 
     /**
      * 通过手机号查询用户、角色信息
      */
-    @GetMapping("/findUserByMobile/{mobile}")
+    @GetMapping("/api/findUserByMobile/{mobile}")
     AuthUser findUserByMobile(@PathVariable("mobile") String mobile);
+
+    /**
+     * 通过角色名查询菜单
+     */
+    @GetMapping(value = "/api/findMenuByRole/{roleCode}")
+    Set<AuthPermission> findMenuByRole(@PathVariable("roleCode") String roleCode);
 }

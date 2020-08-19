@@ -22,6 +22,7 @@ public class UserController {
 
     @GetMapping(value = "/details/{userId}")
     public UserModel accept(@PathVariable(value = "userId") Integer userId) {
+        System.out.println(authClient.getAuth(10));
         return UserModel.builder().userId(userId).username("Ming").build();
     }
 }

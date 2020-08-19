@@ -3,7 +3,6 @@ package com.service.gateway.serivce.impl;
 import com.core.commons.constants.SecurityConstant;
 import com.core.commons.jwt.JwtUtil;
 import com.core.commons.utils.StringHelper;
-import com.service.api.PermissionFeignApi;
 import com.service.api.model.AuthPermission;
 import com.service.gateway.serivce.PermissionService;
 import lombok.extern.slf4j.Slf4j;

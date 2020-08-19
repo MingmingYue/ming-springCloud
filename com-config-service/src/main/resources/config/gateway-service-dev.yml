@@ -87,3 +87,7 @@ urls:
     - /auth/**
     - /actuator/health
     - /webjars/**
+    - /user/code/*
+    - /user/api/info
+    - /user/api/userTree
+    - /user/api/dictType/*
