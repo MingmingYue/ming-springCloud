@@ -109,14 +109,14 @@ public class MenuServiceImpl extends JPAFactoryImpl implements MenuService {
     }
 
     @Override
-    @Cacheable(key = "'menu_list'")
+    @Cacheable(key = "'menu_list'", unless = "#result == null")
     public List<Menu> findMenuList() {
         QMenu qMenu = QMenu.menu;
         return this.queryFactory.selectFrom(qMenu).fetch();
     }
 
     @Override
-    @Cacheable(key = "'menu_' + #roleId")
+    @Cacheable(key = "'menu_' + #roleId", unless = "#result == null")
     public List<Menu> findMenuByRoleId(Integer roleId) {
         if (null == roleId) return null;
         QRoleMenu qRoleMenu = QRoleMenu.roleMenu;

@@ -65,10 +65,13 @@ zuul:
           refresh-interval: 3 #3秒内允许300个访问，平均每个请求2秒，并且要求总请求时间小于2400秒
           type:
             - url
+
 security:
   validate:
     code: false
   sessions: stateless
+  auth:
+    server: http://localhost:1004
   oauth2:
     client:
       client-id: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)

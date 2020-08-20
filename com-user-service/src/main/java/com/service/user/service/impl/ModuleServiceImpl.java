@@ -20,7 +20,7 @@ import java.util.List;
 public class ModuleServiceImpl extends JPAFactoryImpl implements ModuleService {
 
     @Override
-    @Cacheable(key = "'module_list'")
+    @Cacheable(key = "'module_list'", unless = "#result == null")
     public List<Module> getAllList() {
         QModule qModule = QModule.module;
         return this.queryFactory.selectFrom(qModule).fetch();

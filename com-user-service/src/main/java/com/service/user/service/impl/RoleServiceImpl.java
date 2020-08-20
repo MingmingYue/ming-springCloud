@@ -39,7 +39,7 @@ public class RoleServiceImpl extends JPAFactoryImpl implements RoleService {
     private RoleRepository roleRepository;
 
     @Override
-    @Cacheable(key = "'role_code_' + #roleCode")
+    @Cacheable(key = "'role_code_' + #roleCode", unless = "#result == null")
     public Role findRoleByCode(String roleCode) {
         if (StringHelper.isBlank(roleCode)) {
             return null;
@@ -49,13 +49,13 @@ public class RoleServiceImpl extends JPAFactoryImpl implements RoleService {
     }
 
     @Override
-    @Cacheable(key = "'role_list'")
+    @Cacheable(key = "'role_list'", unless = "#result == null")
     public List<Role> getRoleList() {
         return roleRepository.findAll();
     }
 
     @Override
-    @Cacheable(key = "'page_role_' + #p0.currentPage + '_' + #p0.pageSize + '_' + #p1.roleName + '_' + #p1.roleCode")
+    @Cacheable(key = "'page_role_' + #p0.currentPage + '_' + #p0.pageSize + '_' + #p1.roleName + '_' + #p1.roleCode", unless = "#result == null")
     public PageBean<RoleDeptBean> findAll(PageParams pageParams, Role role) {
 
         // 复杂SQL举例查询

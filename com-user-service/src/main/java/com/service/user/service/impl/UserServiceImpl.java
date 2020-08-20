@@ -42,7 +42,7 @@ public class UserServiceImpl extends JPAFactoryImpl implements UserService {
     private UserRoleRepository userRoleRepository;
 
     @Override
-    @Cacheable(key = "'user_name_' + #username")
+    @Cacheable(key = "'user_name_' + #username", unless = "#result == null")
     public AuthUser findUserByUsername(String username) {
         User user = findUserByUsername(username, true);
 
@@ -63,7 +63,7 @@ public class UserServiceImpl extends JPAFactoryImpl implements UserService {
     }
 
     @Override
-    @Cacheable(key = "'user_mobile_' + #mobile")
+    @Cacheable(key = "'user_mobile_' + #mobile", unless = "#result == null")
     public AuthUser findUserByMobile(String mobile) {
         User user = userRepository.findUserByMobile(mobile.trim());
         if (null == user) return null;
@@ -130,7 +130,7 @@ public class UserServiceImpl extends JPAFactoryImpl implements UserService {
         authUser.setUsername(user.getUsername());
 
         if (null == user.getRoleList() || user.getRoleList().size() == 0) return authUser;
-        List<AuthRole> rList = new ArrayList<AuthRole>();
+        List<AuthRole> rList = new ArrayList<>();
         for (Role r : user.getRoleList()) {
             AuthRole aRole = new AuthRole();
             aRole.setStatu(r.getStatu());

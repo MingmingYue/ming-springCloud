@@ -4,6 +4,7 @@ jasypt:
 ming:
   jwt:
     jwtkey: jwt:token:ming
+    prefix: 3600
 
 server:
   tomcat:
