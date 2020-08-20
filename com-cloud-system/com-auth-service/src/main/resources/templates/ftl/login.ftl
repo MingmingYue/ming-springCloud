@@ -25,7 +25,7 @@
               <input value="sign in" style="width:100%;" type="submit">
           </form>
       </div>
-      <div class="copyright">email: liuweijw.github@foxmail.com</div>
+      <div class="copyright">email: ming@foxmail.com</div>
 </div>
 </body>
 </html>

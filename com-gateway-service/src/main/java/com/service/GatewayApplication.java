@@ -1,4 +1,5 @@
-package com.service.gateway;
+package com.service;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.cloud.client.SpringCloudApplication;

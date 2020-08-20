@@ -33,13 +33,13 @@ import java.util.Set;
 public class UserServiceImpl extends JPAFactoryImpl implements UserService {
 
     @Autowired
-    private UserRepository      userRepository;
+    private UserRepository userRepository;
 
     @Autowired
-    private PermissionService   permissionService;
+    private PermissionService permissionService;
 
     @Autowired
-    private UserRoleRepository  userRoleRepository;
+    private UserRoleRepository userRoleRepository;
 
     @Override
     @Cacheable(key = "'user_name_' + #username")
@@ -73,7 +73,7 @@ public class UserServiceImpl extends JPAFactoryImpl implements UserService {
         return buildAuthUserByUser(user);
     }
 
-      public List<Role> findRoleListByUserId(Integer userId) {
+    public List<Role> findRoleListByUserId(Integer userId) {
         if (null == userId) return null;
 
         // load role

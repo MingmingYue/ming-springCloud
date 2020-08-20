@@ -5,6 +5,7 @@ import com.core.commons.page.PageBean;
 import com.core.commons.page.PageParams;
 import com.core.commons.utils.StringHelper;
 import com.core.commons.utils.WebUtils;
+import com.service.common.cache.AdminCacheKey;
 import com.service.common.jpa.JPAFactoryImpl;
 import com.service.common.utils.PageUtils;
 import com.service.user.bean.RoleDeptBean;
@@ -15,6 +16,7 @@ import com.service.user.service.RoleService;
 import org.hibernate.SQLQuery;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,7 @@ import java.util.Map;
  * Create on 2020-08-13.
  */
 @Service(value = "roleService")
+@CacheConfig(cacheNames = AdminCacheKey.ROLE_INFO)
 public class RoleServiceImpl extends JPAFactoryImpl implements RoleService {
 
     @Autowired
