@@ -76,6 +76,8 @@ security:
     client:
       client-id: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)
       client-secret: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)
+      user-authorization-uri: http://localhost:1004/oauth/authorize
+      access-token-uri: http://localhost:1004/oauth/token
     resource:
       loadBalanced: true
       token-info-uri: ${security.auth.server}/oauth/check-token #由资源服务器用来解码访问令牌
