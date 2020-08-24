@@ -22,10 +22,6 @@ public class EncryUtils {
     @Test
     public void encryptPwd() {
         System.out.println(stringEncryptor.encrypt("user-service"));
-        System.out.println(stringEncryptor.encrypt("com.github.liuweijw"));
-        System.out.println(stringEncryptor.decrypt("H+Ujylg8J3e7QymVchGmDBIf+NiKciFl"));
-        System.out.println(stringEncryptor.decrypt("sKbpJGHz9JZmdydv1WOyAYjyXm2irxc0xYqvQ6VpF31uEw/FVNxYeA=="));
-        System.out.println(stringEncryptor.decrypt("fmVD9Jt6YXP9Q+KBPU8/1cWgKn5WhlGuD10SzFADNz4="));
-        System.out.println(stringEncryptor.decrypt("rC/X/8UBBH2bn9Tgfuu7aw=="));
+        System.out.println(stringEncryptor.encrypt("jwt:token:ming"));
     }
 }

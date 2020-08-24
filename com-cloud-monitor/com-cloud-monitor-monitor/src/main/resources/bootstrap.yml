@@ -3,18 +3,3 @@ spring:
     name: monitor-monitor-service
   profiles:
     active: dev
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        prefer-ip-address: true
-        health-check-interval: 15s
-        service-name: "${spring.application.name}"
-    config:
-      name: ${spring.application.name}
-      profile: ${spring.profiles.active}
-      fail-fast: true
-      discovery:
-        enabled: true
-        service-id: consul-config
