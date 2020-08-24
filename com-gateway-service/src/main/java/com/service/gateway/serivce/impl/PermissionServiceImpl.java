@@ -47,6 +47,7 @@ public class PermissionServiceImpl implements PermissionService {
          */
         Object principal = authentication.getPrincipal();
         List<SimpleGrantedAuthority> grantedAuthorityList = (List<SimpleGrantedAuthority>) authentication.getAuthorities();
+
         boolean hasPermission = false;
 
         if (null == principal) {

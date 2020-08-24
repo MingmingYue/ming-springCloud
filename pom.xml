@@ -14,6 +14,7 @@
         <module>com-cloud-core</module>
         <module>com-user-service</module>
         <module>com-cloud-system</module>
+        <module>com-cloud-monitor</module>
     </modules>
 
     <parent>
@@ -36,6 +37,9 @@
         <commons-io.version>2.5</commons-io.version>
         <ttl.version>2.2.0</ttl.version>
         <jjwt>0.9.1</jjwt>
+        <spring-boot-admin-server.version>2.2.0</spring-boot-admin-server.version>
+        <spring-boot-admin-server-ui.version>2.2.0</spring-boot-admin-server-ui.version>
+        <spring-boot-admin-server-ui-turbine.version>1.5.7</spring-boot-admin-server-ui-turbine.version>
         <hibernate.validator.version>5.3.6.Final</hibernate.validator.version>
         <hibernate.core.version>5.0.12.Final</hibernate.core.version>
     </properties>
@@ -152,6 +156,22 @@
                 <groupId>io.github.openfeign</groupId>
                 <artifactId>feign-okhttp</artifactId>
                 <version>9.5.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server</artifactId>
+                <version>${spring-boot-admin-server.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui</artifactId>
+                <version>${spring-boot-admin-server-ui.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-server-ui-turbine</artifactId>
+                <version>${spring-boot-admin-server-ui-turbine.version}</version>
             </dependency>
 
         </dependencies>

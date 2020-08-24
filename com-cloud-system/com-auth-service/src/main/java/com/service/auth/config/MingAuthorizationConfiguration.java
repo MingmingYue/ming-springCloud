@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -17,13 +18,13 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.A
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
+import org.springframework.security.oauth2.provider.endpoint.TokenKeyEndpoint;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
 import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.redis.RedisTokenStore;
 
-import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,10 +44,10 @@ public class MingAuthorizationConfiguration extends AuthorizationServerConfigure
     @Autowired
     private JwtConfiguration jwtConfiguration;
 
-    @Resource
+    @Autowired
     private AuthenticationManager authenticationManager;
 
-    @Autowired(required = false)
+    @Autowired
     private UserDetailsService userDetailsService;
 
     @Autowired
@@ -78,7 +79,7 @@ public class MingAuthorizationConfiguration extends AuthorizationServerConfigure
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security.allowFormAuthenticationForClients()
                 // 获取JWt加密key: /oauth/token_key 采用RSA非对称加密时候使用。对称加密禁止访问
-                // .tokenKeyAccess("isAuthenticated()")
+                .tokenKeyAccess("isAuthenticated()")
                 .checkTokenAccess("permitAll()");
     }
 
@@ -101,8 +102,8 @@ public class MingAuthorizationConfiguration extends AuthorizationServerConfigure
     }
 
     /**
-     * tokenstore 定制化处理 1. 如果使用的 redis-cluster 模式请使用 FwRedisTokenStore FwRedisTokenStore tokenStore = new
-     * FwRedisTokenStore();
+     * tokenstore 定制化处理 1. 如果使用的 redis-cluster 模式请使用 MingRedisTokenStore MingRedisTokenStore tokenStore = new
+     * MingRedisTokenStore();
      * tokenStore.setRedisTemplate(redisTemplate);
      */
     @Bean
@@ -111,6 +112,11 @@ public class MingAuthorizationConfiguration extends AuthorizationServerConfigure
         tokenStore.setPrefix(SecurityConstant.PREFIX);
         return tokenStore;
     }
+
+//    @Bean
+//    public TokenKeyEndpoint tokenKeyEndpoint() {
+//        return new TokenKeyEndpoint(jwtAccessTokenConverter());
+//    }
 
     /**
      * jwt 生成token 定制化处理

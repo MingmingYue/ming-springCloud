@@ -1,12 +1,14 @@
 package com.service.auth.config;
 
 import com.core.config.configuration.MingUrlsConfiguration;
+import com.service.auth.component.ajax.AjaxLoginSuccessHandler;
 import com.service.auth.component.ajax.AjaxSecurityConfigurer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -23,10 +25,13 @@ import org.springframework.security.config.annotation.web.configurers.Expression
 public class MingResourceServerConfiguration extends WebSecurityConfigurerAdapter {// ResourceServerConfigurerAdapter {
 
     @Autowired
-    private MingUrlsConfiguration   mingUrlsConfiguration;
+    private MingUrlsConfiguration mingUrlsConfiguration;
 
     @Autowired
-    private AjaxSecurityConfigurer  ajaxSecurityConfigurer;
+    private AjaxSecurityConfigurer ajaxSecurityConfigurer;
+
+    @Autowired
+    private AjaxLoginSuccessHandler ajaxLoginSuccessHandler;
 
     @Bean
     @Override
@@ -34,24 +39,26 @@ public class MingResourceServerConfiguration extends WebSecurityConfigurerAdapte
         return super.authenticationManagerBean();
     }
 
-        @Override
+    @Override
     public void configure(HttpSecurity http) throws Exception {
-            ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http.formLogin()
-                    // 可以通过授权登录进行访问
-                    .loginPage("/auth/login")
-                    .loginProcessingUrl("/auth/signin")
-                    .and()
-                    .authorizeRequests();
+        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http.formLogin()
+                // 可以通过授权登录进行访问
+                .loginPage("/auth/login")
+                .loginProcessingUrl("/auth/signin")
+                .successHandler(ajaxLoginSuccessHandler)
+                .and()
+                .authorizeRequests()
+                .antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll();
 
-            for (String url : mingUrlsConfiguration.getCollects()) {
-                registry.antMatchers(url).permitAll();
-            }
-            registry.anyRequest()
-                    .authenticated()
-                    .and()
-                    .csrf()
-                    .disable();
-            http.apply(ajaxSecurityConfigurer);
+        for (String url : mingUrlsConfiguration.getCollects()) {
+            registry.antMatchers(url).permitAll();
+        }
+        registry.anyRequest()
+                .authenticated()
+                .and()
+                .csrf()
+                .disable();
+        http.apply(ajaxSecurityConfigurer);
     }
 
 }

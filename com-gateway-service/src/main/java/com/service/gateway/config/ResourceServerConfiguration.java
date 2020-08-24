@@ -56,8 +56,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class);
         // 允许使用iframe 嵌套，避免swagger-ui 不被加载的问题
         http.headers().frameOptions().disable();
-        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http
-                .authorizeRequests();
+        ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry registry = http.authorizeRequests();
         // 排除无需认证的请求
         for (String url : urlsConfiguration.getCollects()) {
             registry.antMatchers(url).permitAll();

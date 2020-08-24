@@ -1,9 +1,10 @@
 package com.service;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -12,8 +13,8 @@ import org.springframework.context.annotation.ComponentScan;
  * Create on 2020-08-05.
  */
 @EnableFeignClients
-@SpringCloudApplication
-@ComponentScan(basePackages = {"com.service.api", "com.service.auth", "com.service", "com.core.config"})
+@SpringBootApplication(exclude = {UserDetailsServiceAutoConfiguration.class})
+@ComponentScan(basePackages = {"com.service", "com.core.config"})
 public class AuthApplication extends SpringBootServletInitializer {
 
     @Override

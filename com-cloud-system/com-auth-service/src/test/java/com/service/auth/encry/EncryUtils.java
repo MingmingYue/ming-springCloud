@@ -1,4 +1,4 @@
-package com.service.gateway.encry;
+package com.service.auth.encry;
 
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 
 /**
  * @author xiaoMing
- * Create on 2020-08-14.
+ * Create on 2020-08-22.
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest

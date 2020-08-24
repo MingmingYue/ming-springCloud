@@ -3,25 +3,26 @@ package com.service.auth.service;
 import com.core.commons.utils.StringHelper;
 import com.service.api.UserFeignApi;
 import com.service.api.model.AuthUser;
+
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import java.io.Serializable;
-
 /**
  * @author xiaoMing
  * Create on 2020-08-17.
  */
-@Service("userDetailService")
+@Service("userDetailsService")
 public class UserDetailServiceImpl implements UserDetailsService, Serializable {
 
-    private static final long	serialVersionUID	= 5181442448895412779L;
+    private static final long serialVersionUID = 5181442448895412779L;
 
     @Autowired
-    private     UserFeignApi        userFeignApi;
+    private UserFeignApi userFeignApi;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -34,5 +35,4 @@ public class UserDetailServiceImpl implements UserDetailsService, Serializable {
 
         return new UserDetailsImpl(user);
     }
-
 }

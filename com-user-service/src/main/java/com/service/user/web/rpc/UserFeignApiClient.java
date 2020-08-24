@@ -5,7 +5,9 @@ import com.service.api.UserFeignApi;
 import com.service.api.model.AuthPermission;
 import com.service.api.model.AuthUser;
 import com.service.common.bean.AuthMenu;
+import com.service.common.permission.Module;
 import com.service.common.web.BaseController;
+import com.service.common.web.aop.PrePermissions;
 import com.service.user.service.MenuService;
 import com.service.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +24,7 @@ import java.util.Set;
  */
 @Slf4j
 @RestController
+//@PrePermissions(value = Module.API, required = false)
 public class UserFeignApiClient extends BaseController implements UserFeignApi {
 
     @Autowired
