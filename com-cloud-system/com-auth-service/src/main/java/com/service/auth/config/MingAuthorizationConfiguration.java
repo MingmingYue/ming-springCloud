@@ -57,7 +57,7 @@ public class MingAuthorizationConfiguration extends AuthorizationServerConfigure
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
                 .withClient(authServerConfiguration.getClientId())
-                .secret(authServerConfiguration.getClientSecret())
+                .secret(passwordEncoder().encode(authServerConfiguration.getClientSecret()))
                 .authorizedGrantTypes(SecurityConstant.REFRESH_TOKEN, SecurityConstant.PASSWORD, SecurityConstant.AUTHORIZATION_CODE)
                 .scopes(authServerConfiguration.getScope())
                 // true 直接跳转到客户端页面，false 跳转到用户确认授权页面
@@ -79,7 +79,7 @@ public class MingAuthorizationConfiguration extends AuthorizationServerConfigure
     public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
         security.allowFormAuthenticationForClients()
                 // 获取JWt加密key: /oauth/token_key 采用RSA非对称加密时候使用。对称加密禁止访问
-                .tokenKeyAccess("isAuthenticated()")
+//                .tokenKeyAccess("isAuthenticated()")
                 .checkTokenAccess("permitAll()");
     }
 

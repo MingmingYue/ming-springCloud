@@ -47,6 +47,8 @@ public class MingResourceServerConfiguration extends WebSecurityConfigurerAdapte
                 .loginProcessingUrl("/auth/signin")
                 .successHandler(ajaxLoginSuccessHandler)
                 .and()
+                .httpBasic()
+                .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll();
 

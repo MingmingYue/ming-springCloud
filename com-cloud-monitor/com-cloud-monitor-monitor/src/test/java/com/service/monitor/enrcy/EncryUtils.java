@@ -23,5 +23,6 @@ public class EncryUtils {
     public void encryptPwd() {
         System.out.println(stringEncryptor.encrypt("user-service"));
         System.out.println(stringEncryptor.encrypt("jwt:token:ming"));
+        System.out.println(stringEncryptor.decrypt("H+Ujylg8J3e7QymVchGmDBIf+NiKciFl"));
     }
 }

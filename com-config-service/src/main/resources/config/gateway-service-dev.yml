@@ -69,7 +69,6 @@ zuul:
 security:
   validate:
     code: false
-  sessions: stateless
   auth:
     server: http://localhost:1004
   oauth2:
