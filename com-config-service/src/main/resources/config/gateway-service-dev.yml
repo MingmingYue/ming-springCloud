@@ -13,29 +13,6 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-        - id: user-service
-          uri: lb://user-service
-          predicates:
-            - Path=/user/**
-          filters:
-            - RewritePath=/user/(?<path>.*), /$\{path}
-        - id: auth-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/auth/**
-          filters:
-            - RewritePath=/auth/(?<path>.*), /$\{path}
-      default-filters:
-        - name: Hystrix
-          args:
-            name: fallbackcmd
-            fallbackUri: forward:/default-error
 
 zuul:
   ribbon:

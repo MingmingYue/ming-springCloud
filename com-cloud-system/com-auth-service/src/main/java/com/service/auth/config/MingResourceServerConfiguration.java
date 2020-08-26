@@ -50,7 +50,7 @@ public class MingResourceServerConfiguration extends WebSecurityConfigurerAdapte
                 .httpBasic()
                 .and()
                 .authorizeRequests()
-                .antMatchers(HttpMethod.OPTIONS, "/oauth/token").permitAll();
+                .antMatchers(HttpMethod.OPTIONS, "/oauth/**").permitAll();
 
         for (String url : mingUrlsConfiguration.getCollects()) {
             registry.antMatchers(url).permitAll();
