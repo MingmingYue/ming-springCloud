@@ -18,25 +18,29 @@ public class AuthServerConfiguration {
     /**
      * 客户端id
      */
-    private String	clientId;
+    private String clientId;
 
     /**
      * 客户端密码
      */
-    private String	clientSecret;
+    private String clientSecret;
 
     /**
      * scope
      */
-    private String	scope;
+    private String scope;
 
     /**
      * RSA private 密匙
      */
-    private String	privateKey;
+    private String privateKey;
 
     /**
      * RSA public 公匙
      */
-    private String	publicKey;
+    private String publicKey;
+
+    private String username;
+
+    private String password;
 }

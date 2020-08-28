@@ -2,33 +2,24 @@ package com.service;
 
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.cloud.client.SpringCloudApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor;
-import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+
+//import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 
 /**
  * @author xiaoMing
  * Create on 2020-08-19.
  */
-@EnableZuulProxy
-@EnableFeignClients
-@EnableGlobalMethodSecurity(prePostEnabled = true)
-@SpringCloudApplication
+//@EnableFeignClients
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
+@SpringBootApplication
 @ComponentScan(basePackages = {"com.service", "com.core.config"})
-public class GatewayApplication extends SpringBootServletInitializer {
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(GatewayApplication.class);
-    }
+public class GatewayApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class, args);

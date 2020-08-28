@@ -18,7 +18,9 @@ spring:
       discovery:
         enabled: true
         service-id: consul-config
-
+feign:
+  hystrix:
+    enabled: true
 logging:
   level:
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG

@@ -173,6 +173,11 @@
                 <artifactId>spring-boot-admin-server-ui-turbine</artifactId>
                 <version>${spring-boot-admin-server-ui-turbine.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.nimbusds</groupId>
+                <artifactId>nimbus-jose-jwt</artifactId>
+                <version>8.2</version>
+            </dependency>
 
         </dependencies>
     </dependencyManagement>

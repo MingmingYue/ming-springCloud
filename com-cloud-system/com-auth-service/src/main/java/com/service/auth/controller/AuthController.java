@@ -3,10 +3,12 @@ package com.service.auth.controller;
 import com.core.commons.R;
 import com.core.commons.constants.SecurityConstant;
 import com.core.model.auth.AuthModel;
+import com.service.api.UserFeignApi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.context.annotation.Scope;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @RequestMapping(value = "/auth")
 public class AuthController {
+
+    @Autowired
+    private UserFeignApi userFeignApi;
 
     @Autowired
     @Qualifier("consumerTokenServices")
@@ -38,6 +43,7 @@ public class AuthController {
 
     @GetMapping(value = "/details/{authId}")
     public AuthModel accept(@PathVariable(value = "authId") Integer authId) {
+        System.out.println(userFeignApi.findUserByUsername("admin"));
         System.out.println("==================== authId: " + authId);
         return AuthModel.builder().authId(authId).authName("AuthId").build();
     }

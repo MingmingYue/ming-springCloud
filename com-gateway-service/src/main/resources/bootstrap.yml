@@ -3,6 +3,8 @@ spring:
     name: gateway-service
   profiles:
     active: dev
+  main:
+    allow-bean-definition-overriding: true
   cloud:
     consul:
       host: 10.10.34.90
@@ -18,6 +20,11 @@ spring:
       discovery:
         enabled: true
         service-id: consul-config
+
+management:
+  endpoint:
+    health:
+      enabled: true
 
 logging:
   config: classpath:logback.xml

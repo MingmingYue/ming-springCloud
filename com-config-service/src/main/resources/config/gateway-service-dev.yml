@@ -13,54 +13,24 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-
-zuul:
-  ribbon:
-    eager-load:
-      enabled: true #开启Ribbon的饥饿加载模式
-  ignoredServices: '*'
-  host:
-    connect-timeout-millis: 30000
-    socket-timeout-millis: 30000
-  routes:
-    auth:
-      path: /auth/**
-      serviceId: auth-service
-      stripPrefix: true
-      sensitiveHeaders:
-    user:
-      path: /user/**
-      serviceId: user-service
-      stripPrefix: true
-      sensitiveHeaders:
-  ratelimit:
-    enabled: true
-    repository: REDIS
-    policy-list:
-      user:
-        - limit: 100
-          refresh-interval: 3 #3秒内允许300个访问，平均每个请求2秒，并且要求总请求时间小于2400秒
-          type:
-            - url
-
-security:
-  validate:
-    code: false
-  auth:
-    server: http://localhost:1004
-  oauth2:
-    client:
-      client-id: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)
-      client-secret: ENC(H+Ujylg8J3e7QymVchGmDBIf+NiKciFl)
-      user-authorization-uri: http://localhost:1004/oauth/authorize
-      access-token-uri: http://localhost:1004/oauth/token
-    resource:
-      loadBalanced: true
-      token-info-uri: ${security.auth.server}/oauth/check-token #由资源服务器用来解码访问令牌
-      service-id: gateway-service
-      jwt:
-        #key-uri: ${security.auth.server}/oauth/token_key #使用JWT令牌，RSA公开密钥可以用于令牌验证
-        key-value: ENC(ImMmgMH0jqdNz6JaOFhRcZgYgF1Hv6r3)
+  cloud.gateway.routes:
+    - id: user-service
+      uri: lb://user-service
+      predicates:
+        - Path=/user/**
+      filters:
+        - StripPrefix=1
+    - id: auth-service
+      uri: lb://auth-service
+      predicates:
+        - Path=/auth/**
+      filters:
+        - StripPrefix=1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: 'http://localhost:1004/.well-known/jwks.json'
 
 urls:
   collects:
