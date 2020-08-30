@@ -5,7 +5,7 @@ spring:
     active: dev
   cloud:
     consul:
-      host: 10.10.34.90
+      host: localhost
       port: 8500
       discovery:
         prefer-ip-address: true
@@ -18,7 +18,9 @@ spring:
       discovery:
         enabled: true
         service-id: consul-config
-
+management:
+  endpoints:
+    web.exposure.include: "*"
 logging:
   level:
     org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG

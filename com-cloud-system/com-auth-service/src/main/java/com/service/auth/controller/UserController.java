@@ -38,7 +38,7 @@ public class UserController {
         return authentication.getPrincipal();
     }
 
-    @GetMapping("/.well-known/jwks.json")
+    @GetMapping("/rsa/publicKey")
     public Map<String, Object> getKey() {
         RSAPublicKey publicKey = (RSAPublicKey) keyPair.getPublic();
         RSAKey key = new RSAKey.Builder(publicKey).build();
