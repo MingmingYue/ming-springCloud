@@ -24,7 +24,6 @@ import java.util.Set;
  */
 @Slf4j
 @RestController
-//@PrePermissions(value = Module.API, required = false)
 public class UserFeignApiClient extends BaseController implements UserFeignApi {
 
     @Autowired

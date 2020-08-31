@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UserController {
 
-//    @Resource
-//    private AuthClient authClient;
-
     @PreAuthorize("#oauth2.hasScope('server')")
     @GetMapping(value = "/details/{userId}")
     public UserModel accept(@PathVariable(value = "userId") Integer userId) {
