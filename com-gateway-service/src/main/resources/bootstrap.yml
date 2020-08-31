@@ -7,7 +7,7 @@ spring:
     allow-bean-definition-overriding: true
   cloud:
     consul:
-      host: localhost
+      host: 10.10.34.90
       port: 8500
       discovery:
         prefer-ip-address: true

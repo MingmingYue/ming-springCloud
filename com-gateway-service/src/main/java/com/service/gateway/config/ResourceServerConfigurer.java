@@ -33,7 +33,6 @@ public class ResourceServerConfigurer {
         http
                 .authorizeExchange()
                 .pathMatchers("/actuator/**").permitAll()
-//                .pathMatchers("/user/**").hasAuthority("ROLE_ADMIN")
                 .anyExchange()
                 .authenticated()
                 .and()
