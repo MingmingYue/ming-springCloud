@@ -20,4 +20,10 @@ public class UserController {
     public UserModel accept(@PathVariable(value = "userId") Integer userId) {
         return UserModel.builder().userId(userId).username("Ming").build();
     }
+
+    @PreAuthorize("#oauth2.hasScope('server')")
+    @GetMapping(value = "/{userId}")
+    public UserModel accept1(@PathVariable(value = "userId") Integer userId) {
+        return UserModel.builder().userId(userId).username("Ming").build();
+    }
 }

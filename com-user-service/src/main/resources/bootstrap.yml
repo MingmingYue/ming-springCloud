@@ -11,6 +11,7 @@ spring:
         prefer-ip-address: true
         health-check-interval: 15s
         service-name: "${spring.application.name}"
+        tags: weight=5,version=v1
     config:
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
@@ -34,7 +35,7 @@ security:
       resource-ids: user-service
     # OAuth2 Resource 配置，对应 ResourceServerProperties 类
     resource:
-      token-info-uri: http://127.0.0.1:1004/oauth/check_token # 获得 Token 信息的 URL 资源服务器会调用授权服务器的 /oauth/check_token 接口  验证token的正确性
+      token-info-uri: http://10.10.35.236:1004/oauth/check_token # 获得 Token 信息的 URL 资源服务器会调用授权服务器的 /oauth/check_token 接口  验证token的正确性
 
 management:
   endpoints:
