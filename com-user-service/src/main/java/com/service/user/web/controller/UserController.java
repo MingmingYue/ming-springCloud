@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author xiaoMing
  * Create on 2020-08-04.
@@ -17,13 +19,8 @@ public class UserController {
 
     @PreAuthorize("#oauth2.hasScope('server')")
     @GetMapping(value = "/details/{userId}")
-    public UserModel accept(@PathVariable(value = "userId") Integer userId) {
-        return UserModel.builder().userId(userId).username("Ming").build();
-    }
-
-    @PreAuthorize("#oauth2.hasScope('server')")
-    @GetMapping(value = "/{userId}")
-    public UserModel accept1(@PathVariable(value = "userId") Integer userId) {
+    public UserModel accept(HttpServletRequest request, @PathVariable(value = "userId") Integer userId) {
+        System.out.println(request.getHeader("hello") + "/details/" + userId);
         return UserModel.builder().userId(userId).username("Ming").build();
     }
 }

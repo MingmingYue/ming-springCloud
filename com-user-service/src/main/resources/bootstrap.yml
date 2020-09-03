@@ -11,7 +11,7 @@ spring:
         prefer-ip-address: true
         health-check-interval: 15s
         service-name: "${spring.application.name}"
-        tags: weight=5,version=v1
+        tags: weight=8,version=v1
     config:
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
