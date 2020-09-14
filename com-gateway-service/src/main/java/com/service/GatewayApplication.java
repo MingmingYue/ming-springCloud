@@ -1,15 +1,15 @@
 package com.service;
 
 
-import org.springframework.boot.SpringApplication;
+import com.nepxion.discovery.plugin.strategy.adapter.DiscoveryEnabledStrategy;
+import com.nepxion.discovery.plugin.strategy.adapter.StrategyTracerAdapter;
+import com.service.gateway.config.MyDiscoveryEnabledStrategy;
+import com.service.gateway.loadbalancer.MyStrategyTracerAdapter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
-import org.springframework.cloud.client.loadbalancer.LoadBalancerInterceptor;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 
@@ -17,23 +17,36 @@ import org.springframework.context.annotation.ComponentScan;
  * @author xiaoMing
  * Create on 2020-08-19.
  */
-@EnableDiscoveryClient
 @SpringBootApplication
+@EnableDiscoveryClient
+@EnableConfigurationProperties
 @ComponentScan(basePackages = {"com.service", "com.core.config"})
-public class GatewayApplication  {
-//
-//    @Override
-//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-//        return application.sources(GatewayApplication.class);
-//    }
+public class GatewayApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class, args);
+
+        System.setProperty("nepxion.banner.shown.ansi.mode", "true");
+        new SpringApplicationBuilder(GatewayApplication.class).run(args);
+
     }
 
-//    @Bean
-//    @LoadBalanced
-//    LoadBalancerInterceptor loadBalancerInterceptor(LoadBalancerClient loadBalance) {
-//        return new LoadBalancerInterceptor(loadBalance);
-//    }
+    // ========== 下面的Bean配置以及impl目录下的类都是高级应用，可以全部删除 ==========
+    // 自定义负载均衡的灰度策略
+    @Bean
+    public DiscoveryEnabledStrategy discoveryEnabledStrategy() {
+        return new MyDiscoveryEnabledStrategy();
+    }
+
+    // 自定义灰度路由策略
+    /*@Bean
+    public GatewayStrategyRouteFilter gatewayStrategyRouteFilter() {
+        return new MyGatewayStrategyRouteFilter();
+    }*/
+
+    // 自定义调用链上下文参数
+    @Bean
+    public StrategyTracerAdapter strategyTracerAdapter() {
+        return new MyStrategyTracerAdapter();
+    }
+
 }

@@ -19,34 +19,3 @@ spring:
         native:
           search-locations: classpath:/config
         bootstrap: true
-    gateway:
-      discovery:
-        locator:
-          enabled: true #开启从注册中心动态创建路由的功能
-          lower-case-service-id: true #使用小写服务名，默认是大写
-      routes:
-        - id: user-service
-          uri: grayLb://user-service
-          predicates:
-            - Path=/user/**
-          filters:
-            - StripPrefix=1
-            - AddRequestHeader=hello, world
-        - id: auth-service
-          uri: lb://auth-service
-          predicates:
-            - Path=/auth/**
-          filters:
-            - StripPrefix=1
-      security:
-        oauth2:
-          resourceserver:
-            jwt:
-              jwk-set-uri: 'http://10.10.35.236:1004/rsa/publicKey'
-
-    #开启端点
-    management:
-      endpoints:
-        web:
-          exposure:
-            include: '*'
