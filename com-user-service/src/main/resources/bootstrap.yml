@@ -12,6 +12,7 @@ spring:
         health-check-interval: 15s
         service-name: "${spring.application.name}"
         tags: weight=8,version=v1
+        default-query-tag: gray
     config:
       name: ${spring.application.name}
       profile: ${spring.profiles.active}
