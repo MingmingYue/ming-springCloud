@@ -16,12 +16,12 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   zipkin:
-    base-url: http://10.10.35.236:9411
+    base-url: http://10.10.34.90:9411
   sleuth:
     sampler:
       probability: 0.1 #设置Sleuth的抽样收集概率
   redis:
-    host: 10.10.35.236
+    host: 10.10.34.90
     password:
     database: 0
     port: 6379

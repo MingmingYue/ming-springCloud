@@ -42,7 +42,7 @@ spring:
         oauth2:
           resourceserver:
             jwt:
-              jwk-set-uri: 'http://10.10.35.236:1004/rsa/publicKey'
+              jwk-set-uri: 'http://10.10.34.90:1004/rsa/publicKey'
 
     #开启端点
     management:
